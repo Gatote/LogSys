@@ -12,9 +12,9 @@ fecha_inicio = fecha_actual - timedelta(weeks=522)
 fecha_inicio_str = fecha_inicio.strftime('%Y-%m-%d')
 
 # Crear archivo CSV y escribir encabezados
-with open('GeneradorDeCSVUnProducto/ventas.csv', mode='w', newline='') as archivo_csv:
+with open('ventas.csv', mode='w', newline='') as archivo_csv:
     writer = csv.writer(archivo_csv)
-    writer.writerow(['Comprador', 'Numero de ventas', 'Fecha'])
+    writer.writerow(['Comprador', 'Ventas', 'Fecha'])
 
     # Escribir una venta aleatoria para cada comprador en cada semana
     fecha_actual = fecha_inicio

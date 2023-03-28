@@ -8,8 +8,6 @@ from sklearn.cluster import KMeans
 def main(archivo_ventas):
     df = pd.read_csv(archivo_ventas)
     compradores = st.multiselect("Compradores", df['Comprador'].unique(), key=archivo_ventas)
-
-
     if len(compradores)!=0:
         # Leer archivo CSV
 
@@ -61,15 +59,13 @@ def main(archivo_ventas):
         ).properties(
             title='Ventas Estimadas para la Semana 2'
         )
-    else:
-        resultados=None
-    st.write(resultados)
-    # try:
-    #     if resultados!=None:
-    #         None
-    # except ValueError:
-    #     
-    #     ver_grafico_barras=st.checkbox('Mostrar graficos de barras')
-    #     if  ver_grafico_barras:
-    #         st.altair_chart(chart1, use_container_width=True)
-    #         st.altair_chart(chart2, use_container_width=True)
+
+        # Aplicar clustering con KMeans
+        X = df[['Semanas adelante', 'Ventas']].values
+        
+        kmeans = KMeans(n_clusters=3, n_init=10).fit(X)
+        df['cluster'] = kmeans.labels_
+
+        # Crear gráfico de dispersión con los clusters
+        chart3 = alt.Chart(df).mark
+main('ventas.csv')

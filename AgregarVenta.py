@@ -19,7 +19,7 @@ def main(ArchivoVentas):
     if cantidad_venta == 0:
         st.warning("No se puede hacer una venta en 0")
     elif cantidad_venta < 0:
-        st.warning("La cantidad de venta no puede ser negativa")
+        st.error("La cantidad de venta no puede ser negativa")
     elif st.button('Agregar venta'):
         # Crear un dataframe con la información de la venta
         venta = pd.DataFrame({

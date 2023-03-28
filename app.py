@@ -7,14 +7,14 @@ def main():
     st.sidebar.image(imagen_path, use_column_width=True)
 
     # Crear una lista desplegable con opciones
-    opciones = ["Menú principal", "Gráficos", "Predicciones IA", "Ventas", "Agregar nueva venta"]
+    opciones = ["Menú principal", "Gráficos", "Predicciones", "Ventas", "Agregar nueva venta"]
     seleccion = st.sidebar.selectbox("Ir a", opciones, index=0)
 
     # Redirigir a la página correspondiente según la opción seleccionada
     if seleccion == "Gráficos":
         from VisualizarGraficos import main as graficos_main
         graficos_main(archivo_ventas)
-    elif seleccion == "Predicciones IA":
+    elif seleccion == "Predicciones":
         from IAPredictora import main as ia_main
         ia_main(archivo_ventas)
     elif seleccion == "Ventas":
@@ -25,4 +25,5 @@ def main():
         agregar_main(archivo_ventas)
 
 if __name__ == '__main__':
+
     main()

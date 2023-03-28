@@ -1,0 +1,12 @@
+# # Función que muestra la hora actual
+# def mostrar_hora():
+#     now = datetime.now()
+#     hora_actual = now.strftime("%H:%M:%S")
+#     st.write(f"Hora actual: {hora_actual}")
+
+# # Configuración de la aplicación web
+# st.title("Botón de hora")
+# st.write("Presione el botón para mostrar la hora actual.")
+
+# # Configuración del botón
+# boton_hora = st.button("Mostrar hora", on_click=mostrar_hora)
